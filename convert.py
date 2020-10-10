@@ -1,40 +1,9 @@
 #!/usr/bin/python
 
-########################################################################
-#
-# Function and script for converting videos to images.
-#
-# This can be run as a script in a Linux shell by typing:
-#
-#    python convert.py
-#
-# Or by running:
-#
-#    chmod +x convert.py
-#    ./convert.py
-#
-# Requires the program avconv to be installed.
-# Tested with avconv v. 9.18-6 on Linux Mint.
-#
-# Implemented in Python 3.5 (seems to work in Python 2.7 as well)
-#
-########################################################################
-#
-# This file is part of the TensorFlow Tutorials available at:
-#
-# https://github.com/Hvass-Labs/TensorFlow-Tutorials
-#
-# Published under the MIT License. See the file LICENSE for details.
-#
-# Copyright 2016 by Magnus Erik Hvass Pedersen
-#
-########################################################################
 
 import os
 import subprocess
 import argparse
-
-########################################################################
 
 
 def video2images(in_dir, out_dir, crop_size, out_size, framerate, video_exts):
@@ -127,9 +96,6 @@ def video2images(in_dir, out_dir, crop_size, out_size, framerate, video_exts):
     print("Number of videos converted: {0}".format(video_count))
 
 
-########################################################################
-# This script allows you to run the video-conversion from the command-line.
-
 if __name__ == "__main__":
     # Argument description.
     desc = "Convert videos to images. " \
@@ -175,8 +141,6 @@ if __name__ == "__main__":
         # Default extensions for video-files.
         video_exts = (".MTS", ".mp4")
     else:
-        # A list of strings is provided as a command-line argument, but we
-        # need a tuple instead of a list, so convert it to a tuple.
         video_exts = tuple(video_exts)
 
     # Print the arguments.
@@ -194,4 +158,3 @@ if __name__ == "__main__":
                  crop_size=crop_size, out_size=out_size,
                  framerate=framerate, video_exts=video_exts)
 
-########################################################################
